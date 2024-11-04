@@ -7,4 +7,4 @@ dotcp() {
 dotcp .vimrc
 dotcp .tmux.conf
 
-co ./ssh.config ~/.ssh/config
+cp ./ssh.config ~/.ssh/config
