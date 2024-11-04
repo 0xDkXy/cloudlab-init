@@ -1,7 +1,7 @@
 #!/bin/bash
 
 dotcp() {
-    cp $1 "~/$1"
+    cp $1 ~/$1
 }
 
 dotcp .vimrc
