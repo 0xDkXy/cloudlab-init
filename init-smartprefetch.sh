@@ -11,15 +11,16 @@ if [[ -z $1 ]];then
 fi
 NVME_DEVICE=$1
 
-cd $HOME
-sudo mkfs.ext4 $NVME_DEVICE
-mkdir ~/ssd
-sudo mount $NVME_DEVICE ~/ssd
-cd ~/ssd
-sudo chown -R $USER .
+./init-basic.sh $NVME_DEVICE
 
+cd $HOME
+cd ssh
 
 git clone $REPO -b prefetch
+cd SmartPrefetch
+source ./scripts/setvars.sh
+./scripts/install_packages.sh
+./scripts/compile_kernel.sh
 # cd crossprefetch-asplos24-artifacts
 # 
 # source ./scripts/setvars.sh
