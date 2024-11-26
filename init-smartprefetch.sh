@@ -4,10 +4,16 @@
 
 export DEBIAN_FRONTEND=noninteractive
 
+if [[ -z $1 ]];then
+    echo "input nvme device name"
+    exit
+fi
+NVME_DEVICE=$1
+
 cd $HOME
-sudo mkfs.ext4 /dev/nvme0n1
+sudo mkfs.ext4 $NVME_DEVICE
 mkdir ~/ssd
-sudo mount /dev/nvme0n1 ~/ssd
+sudo mount $NVME_DEVICE ~/ssd
 cd ~/ssd
 sudo chown -R $USER .
 
