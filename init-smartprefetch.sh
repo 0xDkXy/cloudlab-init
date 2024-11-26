@@ -1,6 +1,7 @@
 #!/bin/bash
 
-#REPO="https://github.com/RutgersCSSystems/crossprefetch-asplos24-artifacts.git"
+set -x
+REPO="git@github.com:RutgersCSSystems/SmartPrefetch.git"
 
 export DEBIAN_FRONTEND=noninteractive
 
@@ -17,7 +18,8 @@ sudo mount $NVME_DEVICE ~/ssd
 cd ~/ssd
 sudo chown -R $USER .
 
-# git clone $REPO
+
+git clone $REPO -b prefetch
 # cd crossprefetch-asplos24-artifacts
 # 
 # source ./scripts/setvars.sh
@@ -27,3 +29,4 @@ sudo chown -R $USER .
 # ./compile_modified_deb.sh
 # 
 # 
+set +x

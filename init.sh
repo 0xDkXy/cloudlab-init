@@ -8,3 +8,5 @@ dotcp .vimrc
 dotcp .tmux.conf
 
 cp ./ssh.config ~/.ssh/config
+
+echo 'set -o vi' >> ~/.bashrc
