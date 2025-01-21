@@ -14,7 +14,7 @@ NVME_DEVICE=$1
 ./init-basic.sh $NVME_DEVICE
 
 cd $HOME
-cd ssh
+cd ssd
 
 git clone $REPO -b prefetch
 cd SmartPrefetch
