@@ -19,6 +19,7 @@ cd ssd
 git clone $REPO -b prefetch
 cd SmartPrefetch
 source ./scripts/setvars.sh
+./deps.sh
 
 #./scripts/compile_kernel_install.sh
 #./scripts/compile_kernel.sh
