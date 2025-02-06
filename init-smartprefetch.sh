@@ -19,15 +19,9 @@ cd ssd
 git clone $REPO -b prefetch
 cd SmartPrefetch
 source ./scripts/setvars.sh
-./scripts/install_packages.sh
-./scripts/compile_kernel.sh
-# cd crossprefetch-asplos24-artifacts
-# 
-# source ./scripts/setvars.sh
-# scripts/install_packages.sh
-# 
-# cd $BASE/linux-5.14.0
-# ./compile_modified_deb.sh
-# 
-# 
+
+#./scripts/compile_kernel_install.sh
+#./scripts/compile_kernel.sh
+./scripts/compile_kernel_install_new.sh
+
 set +x
