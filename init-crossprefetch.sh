@@ -4,10 +4,12 @@ REPO="https://github.com/RutgersCSSystems/crossprefetch-asplos24-artifacts.git"
 
 export DEBIAN_FRONTEND=noninteractive
 
+DISK=$1
+
 cd $HOME
-sudo mkfs.ext4 /dev/nvme0n1
+sudo mkfs.ext4 ${DISK}
 mkdir ~/ssd
-sudo mount /dev/nvme0n1 ~/ssd
+sudo mount ${DISK} ~/ssd
 cd ~/ssd
 sudo chown -R $USER .
 
