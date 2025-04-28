@@ -6,6 +6,7 @@ dotcp() {
 
 dotcp .vimrc
 dotcp .tmux.conf
+dotcp .gitconfig
 
 cp ./ssh.config ~/.ssh/config
 

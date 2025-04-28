@@ -1,0 +1,9 @@
+[user]
+	email = 0xdkxy.pollardlee@gmail.com
+	name = 0xDkXy
+[format]
+    signoff = true
+[core]
+	editor = nvim
+[http]
+	version = HTTP/1.1
