@@ -3,6 +3,7 @@
 sudo apt update
 sudo apt install curl clangd clang-format ninja-build gettext cmake curl build-essential -y
 
+
 install_from_src () {
     mkdir -p $HOME/.config
     git clone https://github.com/0xDkXy/nvim.git $HOME/.config/nvim
@@ -17,16 +18,18 @@ install_from_src () {
 }
 
 install_from_bin () {
+    NVIM_VERSION_BIN=$1
+    NVIM_DIR=$2
     cd /tmp
-    curl -L -O https://github.com/neovim/neovim/releases/download/v0.11.1/nvim-linux-x86_64.tar.gz
-    tar -xvpf nvim-linux-x86_64.tar.gz
-    cd nvim-linux-x86_64
+    curl -L -O https://github.com/neovim/neovim/releases/download/$NVIM_VERSION_BIN/${NVIM_DIR}.tar.gz
+    tar -xvpf ${NVIM_DIR}.tar.gz
+    cd ${NVIM_DIR}
     sudo chmod -R 755 .
     sudo cp -r bin/* /usr/bin
     sudo cp -r lib/* /usr/lib
     sudo cp -r share/* /usr/share
     cd /tmp
-    sudo rm -rf nvim-linux-x86_64*
+    sudo rm -rf ${NVIM_DIR}*
 }
 
-install_from_src
+install_from_src v0.10.0 nvim-linux64
