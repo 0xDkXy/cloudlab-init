@@ -32,4 +32,5 @@ install_from_bin () {
     sudo rm -rf ${NVIM_DIR}*
 }
 
-install_from_src v0.10.0 nvim-linux64
+# install_from_src
+install_from_bin v0.10.0 nvim-linux64
