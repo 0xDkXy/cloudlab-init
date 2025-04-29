@@ -3,11 +3,11 @@
 sudo apt update
 sudo apt install curl clangd clang-format ninja-build gettext cmake curl build-essential -y
 
+mkdir -p $HOME/.config
+git clone https://github.com/0xDkXy/nvim.git $HOME/.config/nvim
+
 
 install_from_src () {
-    mkdir -p $HOME/.config
-    git clone https://github.com/0xDkXy/nvim.git $HOME/.config/nvim
-
 
     git clone https://github.com/neovim/neovim -b v0.11.0 --depth 1 /tmp/neovim
     cd /tmp/neovim
