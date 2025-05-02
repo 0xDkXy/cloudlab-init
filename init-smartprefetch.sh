@@ -1,7 +1,8 @@
 #!/bin/bash
 
 set -x
-REPO="git@github.com:RutgersCSSystems/SmartPrefetch.git"
+REPO_SSH="git@github.com:RutgersCSSystems/SmartPrefetch.git"
+REPO_HTTP="https://github.com/RutgersCSSystems/SmartPrefetch.git"
 
 export DEBIAN_FRONTEND=noninteractive
 
@@ -16,8 +17,12 @@ NVME_DEVICE=$1
 cd $HOME
 cd ssd
 
-git clone $REPO -b prefetch
+git clone $REPO_HTTP -b prefetch
 cd SmartPrefetch
+
+git remote remove origin
+git remote add origin ${REPO_SSH}
+
 source ./scripts/setvars.sh
 ./deps.sh
 

@@ -1,6 +1,7 @@
 #!/bin/bash
 
 REPO="https://github.com/RutgersCSSystems/crossprefetch-asplos24-artifacts.git"
+REPO_SSH="git@github.com:RutgersCSSystems/crossprefetch-asplos24-artifacts.git"
 
 export DEBIAN_FRONTEND=noninteractive
 
@@ -15,6 +16,9 @@ sudo chown -R $USER .
 
 git clone $REPO
 cd crossprefetch-asplos24-artifacts
+
+git remote remove origin
+git remote add origin ${REPO_SSH}
 
 source ./scripts/setvars.sh
 scripts/install_packages.sh

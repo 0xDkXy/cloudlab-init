@@ -32,5 +32,23 @@ install_from_bin () {
     sudo rm -rf ${NVIM_DIR}*
 }
 
+install_from_bin () {
+    URL=$1
+    DIR=$2
+    CMD=$3
+    cd /tmp
+    curl -L -O ${URL}
+    eval "${CMD}"
+    cd ${DIR}
+    sudo chmod -R 755 .
+    sudo cp -r bin/* /usr/bin
+    sudo cp -r lib/* /usr/lib
+    sudo cp -r share/* /usr/share
+    cd /tmp
+    sudo rm -rf ${DIR}*
+}
+
 # install_from_src
-install_from_bin v0.10.0 nvim-linux64
+#install_from_bin v0.10.0 nvim-linux64
+install_from_bin "https://github.com/neovim/neovim/releases/download/v0.10.0/nvim-linux64.tar.gz" "nvim-linux64" "tar -xvpf nvim-linux64.tar.gz"
+install_from_bin "https://github.com/clangd/clangd/releases/download/20.1.0/clangd-linux-20.1.0.zip" "clangd-linux-20.1.0" "unzip clangd-linux-20.1.0.zip"
