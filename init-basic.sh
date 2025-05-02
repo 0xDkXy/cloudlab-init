@@ -18,6 +18,11 @@ sudo mount $NVME_DEVICE ~/ssd
 cd ~/ssd
 sudo chown -R $USER .
 
-echo "sudo mount $NVME_DEVICE ~/ssd" >> ~/.bashrc
+
+cat >> "~/.bashrc" << EOF
+if [[ -z "\$(mount | grep ${NVME_DEVICE})" ]]; then
+    sudo mount ${NVME_DEVICE} ~/ssd
+fi
+EOF
 
 set +x
