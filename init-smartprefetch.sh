@@ -17,7 +17,7 @@ NVME_DEVICE=$1
 cd $HOME
 cd ssd
 
-git clone $REPO_HTTP -b prefetch
+git clone ${REPO_SSH} -b prefetch
 cd SmartPrefetch
 
 git remote remove origin
