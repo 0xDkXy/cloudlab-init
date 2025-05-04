@@ -1,7 +1,8 @@
 #!/bin/bash
 
 sudo apt update
-sudo apt install curl clang-format ninja-build gettext cmake curl build-essential -y
+sudo apt install -y curl clang-format ninja-build gettext cmake curl build-essential \
+    unzip
 
 mkdir -p $HOME/.config
 git clone https://github.com/0xDkXy/nvim.git $HOME/.config/nvim
@@ -17,7 +18,7 @@ install_from_src () {
     sudo make install
 }
 
-install_from_bin () {
+_install_from_bin () {
     NVIM_VERSION_BIN=$1
     NVIM_DIR=$2
     cd /tmp
@@ -40,7 +41,7 @@ install_from_bin () {
     curl -L -O ${URL}
     eval "${CMD}"
     cd ${DIR}
-    sudo chmod -R 755 .
+    #sudo chmod -R 755 .
     sudo cp -r bin/* /usr/bin
     sudo cp -r lib/* /usr/lib
     sudo cp -r share/* /usr/share
