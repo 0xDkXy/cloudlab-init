@@ -7,6 +7,7 @@ dotcp() {
 dotcp .vimrc
 dotcp .tmux.conf
 dotcp .gitconfig
+dotcp .wakatime.cfg
 
 cp ./ssh.config ~/.ssh/config
 
