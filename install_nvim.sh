@@ -1,7 +1,7 @@
 #!/bin/bash
 
 sudo apt update
-sudo apt install -y curl clang-format ninja-build gettext cmake curl build-essential \
+sudo apt install -y curl ninja-build gettext cmake curl build-essential \
     unzip
 
 mkdir -p $HOME/.config
@@ -49,7 +49,18 @@ install_from_bin () {
     sudo rm -rf ${DIR}*
 }
 
+install_llvm () {
+    wget https://apt.llvm.org/llvm.sh
+    chmod +x llvm.sh
+    sudo ./llvm.sh 20
+    rm ./llvm.sh
+    sudo ln -s /usr/bin/clang-format-19 /usr/local/bin/clang-format
+    sudo ln -s /usr/bin/clangd-19 /usr/local/bin/clangd
+
+}
+
 # install_from_src
 #install_from_bin v0.10.0 nvim-linux64
 install_from_bin "https://github.com/neovim/neovim/releases/download/v0.10.0/nvim-linux64.tar.gz" "nvim-linux64" "tar -xvpf nvim-linux64.tar.gz"
-install_from_bin "https://github.com/clangd/clangd/releases/download/20.1.0/clangd-linux-20.1.0.zip" "clangd_20.1.0" "unzip clangd-linux-20.1.0.zip"
+#install_from_bin "https://github.com/clangd/clangd/releases/download/20.1.0/clangd-linux-20.1.0.zip" "clangd_20.1.0" "unzip clangd-linux-20.1.0.zip"
+install_llvm
