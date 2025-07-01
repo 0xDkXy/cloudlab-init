@@ -52,10 +52,10 @@ install_from_bin () {
 install_llvm () {
     wget https://apt.llvm.org/llvm.sh
     chmod +x llvm.sh
-    sudo ./llvm.sh 20
+    sudo ./llvm.sh 20 all
     rm ./llvm.sh
-    sudo ln -s /usr/bin/clang-format-19 /usr/local/bin/clang-format
-    sudo ln -s /usr/bin/clangd-19 /usr/local/bin/clangd
+    sudo ln -s /usr/bin/clang-format-20 /usr/local/bin/clang-format
+    sudo ln -s /usr/bin/clangd-20 /usr/local/bin/clangd
 
 }
 
