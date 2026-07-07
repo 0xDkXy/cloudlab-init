@@ -12,3 +12,4 @@ dotcp .wakatime.cfg
 cp ./ssh.config ~/.ssh/config
 
 echo 'set -o vi' >> ~/.bashrc
+echo 'export EDITOR=nvim' >> ~/.bashrc
