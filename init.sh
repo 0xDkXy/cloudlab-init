@@ -5,10 +5,16 @@ dotcp() {
 }
 
 install_codex() {
+    pushd $HOME
+    git clone git@github.com:0xDkXy/codex-config.git
+    cd codex-config
     curl -fsSL https://chatgpt.com/codex/install.sh | sh
     source $HOME/.bashrc
+    ./install.sh
     codex plugin marketplace add DietrichGebert/ponytail
     codex plugin add ponytail@ponytail
+
+    popd
 }
 
 dotcp .vimrc
