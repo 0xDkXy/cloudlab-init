@@ -1,5 +1,8 @@
 #!/bin/bash
 
+
+CODEX="$HOME/.local/bin/codex"
+
 dotcp() {
     cp $1 ~/$1
 }
@@ -11,8 +14,8 @@ install_codex() {
     curl -fsSL https://chatgpt.com/codex/install.sh | sh
     source $HOME/.bashrc
     ./install.sh
-    codex plugin marketplace add DietrichGebert/ponytail
-    codex plugin add ponytail@ponytail
+    $CODEX plugin marketplace add DietrichGebert/ponytail
+    $CODEX plugin add ponytail@ponytail
 
     popd
 }
