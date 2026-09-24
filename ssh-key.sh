@@ -20,4 +20,4 @@ scp -i "$HOME/.ssh/id_rsa_rutgers_cloudlab" "$HOME/.ssh/id_rsa_rutgers_cloudlab"
 
 scp -i "$HOME/.ssh/id_rsa_rutgers_cloudlab" "./ssh.config" "$REMOTE:${REMOTE_HOME}/.ssh/config"
 
-ssh -i "$HOME/.ssh/id_rsa_rutgers_cloudlab" $REMOTE "cd ${REMOTE_HOME}/ && yes | git clone https://github.com/0xDkXy/cloudlab-init.git && cd cloudlab-init && ./install-pkgs.sh && ./init.sh"
+ssh -i "$HOME/.ssh/id_rsa_rutgers_cloudlab" $REMOTE "cd ${REMOTE_HOME}/ && yes | git clone https://github.com/0xDkXy/cloudlab-init.git && cd cloudlab-init && ./install-pkgs.sh && yes | ./init.sh"
