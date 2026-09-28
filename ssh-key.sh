@@ -14,10 +14,21 @@ if [[ -z $REMOTE ]];then
     exit
 fi
 
-ssh -i "$HOME/.ssh/id_rsa_rutgers_cloudlab" $REMOTE "mkdir ${REMOTE_HOME}/.ssh"
+REMOTE_EXEC() {
+    local _CMD="$1"
+    ssh -i "$HOME/.ssh/id_rsa_rutgers_cloudlab" $REMOTE $_CMD
+}
 
-scp -i "$HOME/.ssh/id_rsa_rutgers_cloudlab" "$HOME/.ssh/id_rsa_rutgers_cloudlab" "$REMOTE:${REMOTE_HOME}/.ssh/"
+REMOTE_COPY() {
+    local src="$1"
+    local dest="$2"
+    scp -i "$HOME/.ssh/id_rsa_rutgers_cloudlab" $src $dest
+}
 
-scp -i "$HOME/.ssh/id_rsa_rutgers_cloudlab" "./ssh.config" "$REMOTE:${REMOTE_HOME}/.ssh/config"
+REMOTE_EXEC "mkdir ${REMOTE_HOME}/.ssh"
 
-ssh -i "$HOME/.ssh/id_rsa_rutgers_cloudlab" $REMOTE "cd ${REMOTE_HOME}/ && yes | git clone https://github.com/0xDkXy/cloudlab-init.git && cd cloudlab-init && ./install-pkgs.sh && yes | ./init.sh"
+REMOTE_COPY "$HOME/.ssh/id_rsa_rutgers_cloudlab" "$REMOTE:${REMOTE_HOME}/.ssh/"
+
+REMOTE_COPY "./ssh.config" "$REMOTE:${REMOTE_HOME}/.ssh/config"
+
+REMOTE_EXEC "cd ${REMOTE_HOME}/ && yes | git clone https://github.com/0xDkXy/cloudlab-init.git && cd cloudlab-init && ./init.sh"

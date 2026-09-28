@@ -3,5 +3,9 @@
 sudo apt update
 sudo apt install -y \
     htop \
-    ripgrep
+    ripgrep \
+    ranger \
+    nodejs \
+    nq
+
 

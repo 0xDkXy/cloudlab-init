@@ -9,7 +9,7 @@ dotcp() {
 
 install_codex() {
     pushd $HOME
-    git clone git@github.com:0xDkXy/codex-config.git
+    yes | git clone git@github.com:0xDkXy/codex-config.git
     cd codex-config
     curl -fsSL https://chatgpt.com/codex/install.sh | sh
     source $HOME/.bashrc
@@ -19,6 +19,8 @@ install_codex() {
 
     popd
 }
+
+./install_pkgs.sh
 
 dotcp .vimrc
 dotcp .tmux.conf
